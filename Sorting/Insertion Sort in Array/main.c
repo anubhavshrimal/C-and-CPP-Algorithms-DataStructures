@@ -18,24 +18,18 @@ int main()
     return 0;
 }
 
-insertionSort(int a[],int size)
+void insertionSort(int a[],int size)
 {
-    int i,j,k,temp;
+    int i,j,x;
     for(i=1;i<size;i++)
     {
-       for(j=0;j<i;j++)
-       {
-           if(a[i]<a[j])
-           {
-               temp=a[i];
-               for(k=i-1;k>=j;k--)
-               {
-                   a[k+1]=a[k];
-               }
-               a[k+1]=temp;
-               break;
-           }
-       }
+        j = i - 1;
+        x = a[i];
+        while(j >= 0 && a[j] > x){
+            a[j+1] = a[j];
+            j--;
+        }
+        a[j+1] = x;
     }
 }
 
